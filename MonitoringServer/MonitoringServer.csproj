@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2A42B984-34CF-4428-A92C-F8513F7ED207}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MonitoringServer</RootNamespace>
+    <AssemblyName>MonitoringServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEST</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Projects\DLL\Log4Net\4.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataForServer\Ivr\LinesStatus.cs" />
+    <Compile Include="DataGrabbers\DbConnection.cs" />
+    <Compile Include="DataGrabbers\IVR\IvrGrabber.cs" />
+    <Compile Include="DataGrabbers\IVR\IvrData.cs" />
+    <Compile Include="DataGrabbers\IVR\Monitoring.cs" />
+    <Compile Include="Data\ccMonitoring.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ccMonitoring.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ccMonitoring.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ccMonitoring.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ccMonitoring.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ccMonitoring.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\LocalDataSet.cs">
+      <DependentUpon>LocalDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\LocalDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sp_SelectLineHistoryStatus_Result.cs">
+      <DependentUpon>ccMonitoring.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sp_SelectLineRealStatus_Result.cs">
+      <DependentUpon>ccMonitoring.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Initialize\Modules\Data.cs" />
+    <Compile Include="Initialize\Intializer.cs" />
+    <Compile Include="Initialize\Modules\Ivr.cs" />
+    <Compile Include="Initialize\Modules\WebServer.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonitoringServerService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MonitoringServerService.Designer.cs">
+      <DependentUpon>MonitoringServerService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="WebServer\Ivr\IvrResponce.cs" />
+    <Compile Include="WebServer\Server.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Data\ccMonitoring.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ccMonitoring.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\ccMonitoring.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ccMonitoring.edmx</DependentUpon>
+      <LastGenOutput>ccMonitoring.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Data\ccMonitoring.edmx.diagram">
+      <DependentUpon>ccMonitoring.edmx</DependentUpon>
+    </None>
+    <None Include="Data\ccMonitoring.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ccMonitoring.edmx</DependentUpon>
+      <LastGenOutput>ccMonitoring.cs</LastGenOutput>
+    </None>
+    <None Include="Data\LocalDataSet.xsc">
+      <DependentUpon>LocalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Data\LocalDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LocalDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\LocalDataSet.xss">
+      <DependentUpon>LocalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

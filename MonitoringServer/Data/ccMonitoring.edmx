@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ccMonitoringModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ccMonitoringModelStoreContainer" />
+        <Function Name="sp_InsertLineHistoryStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ivr">
+          <Parameter Name="ivrName" Type="nchar" Mode="In" />
+          <Parameter Name="lineIdle" Type="int" Mode="In" />
+          <Parameter Name="lineIvr" Type="int" Mode="In" />
+          <Parameter Name="lineWaiting" Type="int" Mode="In" />
+          <Parameter Name="lineAgent" Type="int" Mode="In" />
+          <Parameter Name="trCount" Type="int" Mode="In" />
+          <Parameter Name="wqCount" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_SelectLineHistoryStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ivr">
+          <Parameter Name="ivrName" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="sp_UpdateLineHistoryStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ivr">
+          <Parameter Name="ivrName" Type="nchar" Mode="In" />
+          <Parameter Name="lineIdle" Type="int" Mode="In" />
+          <Parameter Name="lineIvr" Type="int" Mode="In" />
+          <Parameter Name="lineWaiting" Type="int" Mode="In" />
+          <Parameter Name="lineAgent" Type="int" Mode="In" />
+          <Parameter Name="trCount" Type="int" Mode="In" />
+          <Parameter Name="wqCount" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ccMonitoringModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ccMonitoringEntities" p1:LazyLoadingEnabled="true" >
+          <FunctionImport Name="sp_InsertLineRealStatus">
+            <Parameter Name="ivrName" Mode="In" Type="String" />
+            <Parameter Name="lineIdle" Mode="In" Type="Int32" />
+            <Parameter Name="lineIvr" Mode="In" Type="Int32" />
+            <Parameter Name="lineWaiting" Mode="In" Type="Int32" />
+            <Parameter Name="lineAgent" Mode="In" Type="Int32" />
+            <Parameter Name="trCount" Mode="In" Type="Int32" />
+            <Parameter Name="wqCount" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SelectLineRealStatus" ReturnType="Collection(ccMonitoringModel.sp_SelectLineRealStatus_Result)">
+            <Parameter Name="ivrName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdateLineRealStatus">
+            <Parameter Name="ivrName" Mode="In" Type="String" />
+            <Parameter Name="lineIdle" Mode="In" Type="Int32" />
+            <Parameter Name="lineIvr" Mode="In" Type="Int32" />
+            <Parameter Name="lineWaiting" Mode="In" Type="Int32" />
+            <Parameter Name="lineAgent" Mode="In" Type="Int32" />
+            <Parameter Name="trCount" Mode="In" Type="Int32" />
+            <Parameter Name="wqCount" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertLineHistoryStatus">
+            <Parameter Name="ivrName" Mode="In" Type="String" />
+            <Parameter Name="lineIdle" Mode="In" Type="Int32" />
+            <Parameter Name="lineIvr" Mode="In" Type="Int32" />
+            <Parameter Name="lineWaiting" Mode="In" Type="Int32" />
+            <Parameter Name="lineAgent" Mode="In" Type="Int32" />
+            <Parameter Name="trCount" Mode="In" Type="Int32" />
+            <Parameter Name="wqCount" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SelectLineHistoryStatus" ReturnType="Collection(ccMonitoringModel.sp_SelectLineHistoryStatus_Result)">
+            <Parameter Name="ivrName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdateLineHistoryStatus">
+            <Parameter Name="ivrName" Mode="In" Type="String" />
+            <Parameter Name="lineIdle" Mode="In" Type="Int32" />
+            <Parameter Name="lineIvr" Mode="In" Type="Int32" />
+            <Parameter Name="lineWaiting" Mode="In" Type="Int32" />
+            <Parameter Name="lineAgent" Mode="In" Type="Int32" />
+            <Parameter Name="trCount" Mode="In" Type="Int32" />
+            <Parameter Name="wqCount" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_SelectLineRealStatus_Result">
+          <Property Type="String" Name="ivrName" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="lineIdle" Nullable="true" />
+          <Property Type="Int32" Name="lineIvr" Nullable="true" />
+          <Property Type="Int32" Name="lineWaiting" Nullable="true" />
+          <Property Type="Int32" Name="lineAgent" Nullable="true" />
+          <Property Type="Int32" Name="trCount" Nullable="true" />
+          <Property Type="Int32" Name="wqCount" Nullable="true" />
+          <Property Type="DateTime" Name="dateModify" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sp_SelectLineHistoryStatus_Result">
+          <Property Type="String" Name="ivrName" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="lineIdle" Nullable="true" />
+          <Property Type="Int32" Name="lineIvr" Nullable="true" />
+          <Property Type="Int32" Name="lineWaiting" Nullable="true" />
+          <Property Type="Int32" Name="lineAgent" Nullable="true" />
+          <Property Type="Int32" Name="trCount" Nullable="true" />
+          <Property Type="Int32" Name="wqCount" Nullable="true" />
+          <Property Type="DateTime" Name="dateModify" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ccMonitoringModelStoreContainer" CdmEntityContainer="ccMonitoringEntities" >
+          <FunctionImportMapping FunctionImportName="sp_InsertLineHistoryStatus" FunctionName="ccMonitoringModel.Store.sp_InsertLineHistoryStatus" />
+          <FunctionImportMapping FunctionImportName="sp_SelectLineHistoryStatus" FunctionName="ccMonitoringModel.Store.sp_SelectLineHistoryStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ccMonitoringModel.sp_SelectLineHistoryStatus_Result">
+                <ScalarProperty Name="ivrName" ColumnName="ivrName" />
+                <ScalarProperty Name="lineIdle" ColumnName="lineIdle" />
+                <ScalarProperty Name="lineIvr" ColumnName="lineIvr" />
+                <ScalarProperty Name="lineWaiting" ColumnName="lineWaiting" />
+                <ScalarProperty Name="lineAgent" ColumnName="lineAgent" />
+                <ScalarProperty Name="trCount" ColumnName="trCount" />
+                <ScalarProperty Name="wqCount" ColumnName="wqCount" />
+                <ScalarProperty Name="dateModify" ColumnName="dateModify" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_UpdateLineHistoryStatus" FunctionName="ccMonitoringModel.Store.sp_UpdateLineHistoryStatus" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MonSrvDataSet" targetNamespace="http://tempuri.org/MonSrvDataSet.xsd" xmlns:mstns="http://tempuri.org/MonSrvDataSet.xsd" xmlns="http://tempuri.org/MonSrvDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ccMonitoring" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ccMonitoring (Settings)" PropertyReference="ApplicationSettings.MonitoringServer.Properties.Settings.GlobalReference.Default.ccMonitoring" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MonSrvDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MonSrvDataSet" msprop:Generator_UserDSName="MonSrvDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ivrChannels" msprop:Generator_TableClassName="ivrChannelsDataTable" msprop:Generator_TableVarName="tableivrChannels" msprop:Generator_RowChangedName="ivrChannelsRowChanged" msprop:Generator_TablePropName="ivrChannels" msprop:Generator_RowDeletingName="ivrChannelsRowDeleting" msprop:Generator_RowChangingName="ivrChannelsRowChanging" msprop:Generator_RowEvHandlerName="ivrChannelsRowChangeEventHandler" msprop:Generator_RowDeletedName="ivrChannelsRowDeleted" msprop:Generator_RowClassName="ivrChannelsRow" msprop:Generator_UserTableName="ivrChannels" msprop:Generator_RowEvArgName="ivrChannelsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IVRID" msprop:Generator_ColumnVarNameInTable="columnIVRID" msprop:Generator_ColumnPropNameInRow="IVRID" msprop:Generator_ColumnPropNameInTable="IVRIDColumn" msprop:Generator_UserColumnName="IVRID" type="xs:string" minOccurs="0" />
+              <xs:element name="OpTime" msprop:Generator_ColumnVarNameInTable="columnOpTime" msprop:Generator_ColumnPropNameInRow="OpTime" msprop:Generator_ColumnPropNameInTable="OpTimeColumn" msprop:Generator_UserColumnName="OpTime" type="xs:string" minOccurs="0" />
+              <xs:element name="Operation" msprop:Generator_ColumnVarNameInTable="columnOperation" msprop:Generator_ColumnPropNameInRow="Operation" msprop:Generator_ColumnPropNameInTable="OperationColumn" msprop:Generator_UserColumnName="Operation" type="xs:string" minOccurs="0" />
+              <xs:element name="CallType" msprop:Generator_ColumnVarNameInTable="columnCallType" msprop:Generator_ColumnPropNameInRow="CallType" msprop:Generator_ColumnPropNameInTable="CallTypeColumn" msprop:Generator_UserColumnName="CallType" type="xs:string" minOccurs="0" />
+              <xs:element name="IvrCallID" msprop:Generator_ColumnVarNameInTable="columnIvrCallID" msprop:Generator_ColumnPropNameInRow="IvrCallID" msprop:Generator_ColumnPropNameInTable="IvrCallIDColumn" msprop:Generator_UserColumnName="IvrCallID" type="xs:string" minOccurs="0" />
+              <xs:element name="CallStart" msprop:Generator_ColumnVarNameInTable="columnCallStart" msprop:Generator_ColumnPropNameInRow="CallStart" msprop:Generator_ColumnPropNameInTable="CallStartColumn" msprop:Generator_UserColumnName="CallStart" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Dir" msprop:Generator_ColumnVarNameInTable="columnDir" msprop:Generator_ColumnPropNameInRow="Dir" msprop:Generator_ColumnPropNameInTable="DirColumn" msprop:Generator_UserColumnName="Dir" type="xs:string" minOccurs="0" />
+              <xs:element name="Channel" msprop:Generator_ColumnVarNameInTable="columnChannel" msprop:Generator_ColumnPropNameInRow="Channel" msprop:Generator_ColumnPropNameInTable="ChannelColumn" msprop:Generator_UserColumnName="Channel" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ivrsData" msprop:Generator_TableClassName="ivrsDataDataTable" msprop:Generator_TableVarName="tableivrsData" msprop:Generator_RowChangedName="ivrsDataRowChanged" msprop:Generator_TablePropName="ivrsData" msprop:Generator_RowDeletingName="ivrsDataRowDeleting" msprop:Generator_RowChangingName="ivrsDataRowChanging" msprop:Generator_RowEvHandlerName="ivrsDataRowChangeEventHandler" msprop:Generator_RowDeletedName="ivrsDataRowDeleted" msprop:Generator_RowClassName="ivrsDataRow" msprop:Generator_UserTableName="ivrsData" msprop:Generator_RowEvArgName="ivrsDataRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ivrName" msprop:Generator_ColumnVarNameInTable="columnivrName" msprop:Generator_ColumnPropNameInRow="ivrName" msprop:Generator_ColumnPropNameInTable="ivrNameColumn" msprop:Generator_UserColumnName="ivrName" type="xs:string" minOccurs="0" />
+              <xs:element name="lineIdle" msprop:Generator_ColumnVarNameInTable="columnlineIdle" msprop:Generator_ColumnPropNameInRow="lineIdle" msprop:Generator_ColumnPropNameInTable="lineIdleColumn" msprop:Generator_UserColumnName="lineIdle" type="xs:int" minOccurs="0" />
+              <xs:element name="lineIvr" msprop:Generator_ColumnVarNameInTable="columnlineIvr" msprop:Generator_ColumnPropNameInRow="lineIvr" msprop:Generator_ColumnPropNameInTable="lineIvrColumn" msprop:Generator_UserColumnName="lineIvr" type="xs:int" minOccurs="0" />
+              <xs:element name="lineWaiting" msprop:Generator_ColumnVarNameInTable="columnlineWaiting" msprop:Generator_ColumnPropNameInRow="lineWaiting" msprop:Generator_ColumnPropNameInTable="lineWaitingColumn" msprop:Generator_UserColumnName="lineWaiting" type="xs:int" minOccurs="0" />
+              <xs:element name="lineAgent" msprop:Generator_ColumnVarNameInTable="columnlineAgent" msprop:Generator_ColumnPropNameInRow="lineAgent" msprop:Generator_ColumnPropNameInTable="lineAgentColumn" msprop:Generator_UserColumnName="lineAgent" type="xs:int" minOccurs="0" />
+              <xs:element name="trCount" msprop:Generator_ColumnVarNameInTable="columntrCount" msprop:Generator_ColumnPropNameInRow="trCount" msprop:Generator_ColumnPropNameInTable="trCountColumn" msprop:Generator_UserColumnName="trCount" type="xs:int" minOccurs="0" />
+              <xs:element name="wqCount" msprop:Generator_ColumnVarNameInTable="columnwqCount" msprop:Generator_ColumnPropNameInRow="wqCount" msprop:Generator_ColumnPropNameInTable="wqCountColumn" msprop:Generator_UserColumnName="wqCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
